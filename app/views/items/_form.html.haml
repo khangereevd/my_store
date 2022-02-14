@@ -1,0 +1,27 @@
+%p
+  Цена:
+  %br
+  = f.text_field :price
+%p
+  Название:
+  %br
+  = f.text_field :name
+%p
+  Описание:
+  %br
+  = f.text_area :description
+%p
+  Вес:
+  %br
+  = f.number_field :weight
+
+%p= image_tag(@item.image.file.url) if @item.image.file.present?
+= f.fields_for :image do |img| #чтобы в форме отобразить поля из связанной сущности(модели)
+  %p
+    Изображение:
+    %br
+    = img.file_field :file
+    - if img.object.file?
+      = img.check_box :remove_file
+
+= hidden_field_tag :admin, params[:admin]
