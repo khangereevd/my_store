@@ -1,0 +1,32 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//#order {
+//  border: 3px solid indigo;
+//}
+
+//#edit_item_1 .black-border {
+//  border: 3px solid cornflowerblue;
+//}
+
+table.items {
+
+  //border-collapse: collapse;
+  //th, td { border: dotted
+  //1px #aaa; padding: 0.5em;
+  //vertical-align: center; text-align: left; }
+
+  th, td {
+    text-align: center;
+  }
+
+}
+
+.deleteAction {
+  cursor: pointer ;
+}
+
+.deleteAction:hover {
+  color: #f3020f;
+}

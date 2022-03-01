@@ -6,8 +6,7 @@ module ApplicationHelper
   end
 
   def urls_to_links(s)
-    s.gsub! /\s(http:\/\/.*?)\s/,
-            '<a href="\1">\1</a>'
+    s.gsub! /\s(http:\/\/.*?)\s/, '<a href="\1">\1</a>'
     s.html_safe
   end
 

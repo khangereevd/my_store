@@ -1,0 +1,24 @@
+ru:
+  item:
+    weight:
+
+  activerecord:
+    models:
+      item: Товар
+    errors:
+      models:
+        item:
+          attributes:
+            name:
+              blank: не может быть пустым
+            description:
+              blank: не может быть пустым
+            price:
+              greater_than: должна быть больше чем '%{value}'
+    attributes:
+      item:
+        price: Цена
+        name: Название
+        description: Описание
+        weight: Вес
+

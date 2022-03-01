@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
+  before_action :init_item, only: [:new, :create]
+  before_action :init_image, only: [:edit, :update, :new, :create]
 
   def index
     @items = Item
@@ -18,25 +20,24 @@ class ItemsController < ApplicationController
 
   # /items/1 GET
   def show
+    # raise 'exception test!'
     unless @item
-      render text: "Page not found", status: 404
+      render_404
     end
   end
 
   # /items/new GET
   def new
-    @item = Item.new
   end
 
   # /items/1/edit GET
   def edit
-    @item.build_image unless @item.image
   end
 
   # /items POST
   def create
-    @item = Item.create(item_params)
-    if @item.errors.empty?
+    @item.assign_attributes(item_params)
+    if @item.save
       redirect_to item_path(@item)
     else
       render 'new'
@@ -58,7 +59,7 @@ class ItemsController < ApplicationController
   # /items/1 DELETE
   def destroy
     @item.destroy
-    redirect_to items_path
+    render json: { success: true }
   end
 
   def upvote
@@ -67,6 +68,14 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def init_item
+    @item = Item.new
+  end
+
+  def init_image
+    @item.build_image unless @item.image
+  end
 
   def item_params
     params
@@ -79,7 +88,4 @@ class ItemsController < ApplicationController
     @item = Item.find_by(id: params[:id])
   end
 
-  def check_if_admin
-    # render_403 unless params[:admin]
-  end
 end

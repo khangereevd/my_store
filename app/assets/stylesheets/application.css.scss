@@ -1,0 +1,17 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "admin";
+@import "items";
+@import "jquery.Jcrop";
+
+//body { padding: 1em; }
+
+input[type=submit] { @extend .btn; @extend .btn-success; }
+.email { font-size: 80%; color: #730E15; margin: 1em; }
+.invalid-feedback {
+  color: #f3020f;
+}
+
+.is-invalid {
+  border: 1px solid #f3020f;
+}

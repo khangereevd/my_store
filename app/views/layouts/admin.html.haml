@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title MyStore
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .adminPanel{ align: 'center' }
+      ADMIN
+    .sessionInfo{ align: 'center' }
+      - if current_user
+        = current_user.login
+        #{link_to '| Sign out |', destroy_user_session_path}
+      - else
+        = link_to 'Sign in', new_user_session_path
+        | #{link_to 'Registration', new_user_registration_path}
+    = yield

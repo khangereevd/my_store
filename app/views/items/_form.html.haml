@@ -1,27 +1,15 @@
-%p
-  Цена:
-  %br
-  = f.text_field :price
-%p
-  Название:
-  %br
-  = f.text_field :name
-%p
-  Описание:
-  %br
-  = f.text_area :description
-%p
-  Вес:
-  %br
-  = f.number_field :weight
+= f.input :price, input_html: { class: 'black-border', id: 'order' }
+= f.input :name
+= f.input :description
+= f.input :weight
 
 %p= image_tag(@item.image.file.url) if @item.image.file.present?
-= f.fields_for :image do |img| #чтобы в форме отобразить поля из связанной сущности(модели)
+= f.simple_fields_for :image do |img| #чтобы в форме отобразить поля из связанной сущности(модели)
   %p
     Изображение:
     %br
     = img.file_field :file
     - if img.object.file?
-      = img.check_box :remove_file
+      = img.input :remove_file, as: :boolean
 
 = hidden_field_tag :admin, params[:admin]

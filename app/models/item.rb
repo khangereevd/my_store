@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   has_many :carts, through: :positions
   has_many :comments, as: :commentable
   has_one :image, as: :imageable, dependent: :destroy
+  has_and_belongs_to_many :orders
 
   accepts_nested_attributes_for :image, allow_destroy: true, reject_if: :all_blank
 

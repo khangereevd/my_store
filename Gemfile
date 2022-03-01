@@ -37,6 +37,11 @@ gem 'devise'
 gem 'paperclip'
 gem 'haml-rails'
 gem 'carrierwave', '~> 2.0'
+gem 'simple_form'
+gem 'exception_notification'
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'jquery-rails'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,10 +61,11 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

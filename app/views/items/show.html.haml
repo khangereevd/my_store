@@ -1,9 +1,9 @@
 %h1= link_to @item.name
 %p= link_to 'Редактировать', edit_item_path(@item)
 %p= link_to 'Удалить', item_path(@item), method: :delete, data: { confirm: 'Точно удалить?' }
-%p= image_tag @item.image.file.url unless @item.image.blank?
+%p= image_tag @item.image.file.url, width: '300' unless @item.image.blank?
 
 %ul
   %li #{@item.price} руб.
   %li= urls_to_links(urls_to_images(@item.description))
-  %li Вес: #{@item.weight} кг.
+  %li Веc: #{@item.weight} кг.
