@@ -1,4 +1,4 @@
-%h1{ style: "color: #B00100; margin: 0 auto" } Items
+%h1.title Items
 - if @items.empty?
   %b No items in store
 - else
@@ -20,7 +20,7 @@
         %td
           = item.price
           руб.
-        %td= item.created_at.to_s.sub('2012', '2013')
+        %td= item.created_at.to_s
         %td
           = item.votes_count
           #{link_to '+', upvote_item_path(item), class: 'btn btn-success'}
@@ -31,7 +31,7 @@
   .btn-toolbar.mb-2{ 'aria-label': 'First group', role: 'group' }
     = button_to 'create item', new_item_path,
       method: :get,
-      style: "margin-right: 20px"
+      class: "mr-20"
     = button_to 'only expensive', expensive_items_path,
       method: :get,
-      style: "margin-right: 20px"
+      class: "mr-20"
